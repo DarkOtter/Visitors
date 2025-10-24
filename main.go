@@ -189,7 +189,7 @@ perNameLoop:
 		bprintf(&buf, "type %s interface {\n", visitorName)
 		for _, suffixType := range typesForInterface {
 			name := suffixType.Name()
-			bprintf(&buf, "\tVisit%s(expr *%s)\n", name, name)
+			bprintf(&buf, "\tVisit%s(obj *%s)\n", name, name)
 		}
 		bprintf(&buf, "}\n\n")
 
@@ -199,8 +199,8 @@ perNameLoop:
 
 		for _, suffixType := range typesForInterface {
 			name := suffixType.Name()
-			bprintf(&buf, "func (expr *%s) Accept(visitor %s) {\n", name, visitorName)
-			bprintf(&buf, "\tvisitor.Visit%s(expr)\n", name)
+			bprintf(&buf, "func (obj *%s) Accept(visitor %s) {\n", name, visitorName)
+			bprintf(&buf, "\tvisitor.Visit%s(obj)\n", name)
 			bprintf(&buf, "}\n\n")
 		}
 	}
