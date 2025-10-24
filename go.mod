@@ -1,4 +1,4 @@
-module Visitors
+module github.com/DarkOtter/Visitors
 
 go 1.25
 
